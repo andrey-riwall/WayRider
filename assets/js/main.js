@@ -7,7 +7,7 @@ var game = document.querySelector('.game');
 var player = document.getElementById('player');
 var move_direction = false;
 
-engine();
+setTimeout(engine, 500)
 
 // ENGINE
 function engine() {
@@ -28,7 +28,7 @@ function update() {
 // BG
 function startAnim() {
     bg1.classList.add('start');
-    setTimeout(middleAnim, 3000);
+    setTimeout(middleAnim, 2500);
 }
 
 function middleAnim() {
