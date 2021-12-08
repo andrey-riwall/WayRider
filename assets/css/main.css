@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    background: #1f1f1f;
+
+    overflow: hidden;
+}
+
+.wrapper {
+    position: relative;
+
+    width: 80vh;
+    height: 80vh;
+    border: 1px solid #fff;
+
+    outline-offset: 1px;
+    /* outline: 2px solid green; */
+
+    overflow: hidden;
+}
+
+.game {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    background: #111;
+}
+
+.line {
+    outline: 1px solid red;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.white-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.white-line::after {
+    content: '';
+    width: 10px;
+    height: 150px;
+    background: #fff;
+}
+
+.bg-1.start {
+    animation: bg-1-1 2.5s linear 1 forwards;
+}
+
+.bg-1.middle {
+    animation: bg 5s linear infinite;
+}
+
+.bg-2 {
+    transform: translateY(-100%);
+    animation: bg 5s linear infinite;
+}
+
+@keyframes bg-1-1 {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes bg {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+
+
+#player {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+
+    width: 60px;
+    height: 100px;
+
+    background: red;
+
+    z-index: 1;
+
+    transition: transform .25s;
+}
+
+#player.pos-ll { transform: translateX(-325px); }
+#player.pos-l { transform: translateX(-130px); }
+#player.pos-r { transform: translateX(70px); }
+#player.pos-rr { transform: translateX(265px); }
